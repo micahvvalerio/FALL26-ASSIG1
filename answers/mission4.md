@@ -5,7 +5,11 @@
 Output of `git log --oneline`:
 
 ```
-paste here
+22d84ba (HEAD -> assignment1) answers to mission 2
+5acef30 answers
+67f5eb8 added answers
+d890ff1 (origin/main, origin/HEAD, main) first push with the assignment files
+294714d Initial commit
 ```
 
 Pick your **best** commit message and your **worst** one. Which of the 7 rules does the worst one break?
@@ -33,4 +37,4 @@ The Operations Manager who owns the portal is not a developer. Write a brief of 
 
 In one or two sentences: which concept from Units 1.1 to 1.3 do you understand much better now, and what made it click?
 
-> your answer
+I understand client-side security a bit more. I learned that browser-side JavaScript can be changed, so instead of relying only on the browser, it should be enforced by the server 
