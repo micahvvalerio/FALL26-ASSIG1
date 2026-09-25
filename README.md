@@ -1,4 +1,4 @@
-# CYSE 411 Assignment 1: Attacking the Secure Status Portal
+## CYSE 411 Assignment 1: Attacking the Secure Status Portal
 
 **Units covered:** 1.1 Foundations of GitHub, 1.2 JavaScript Fundamentals for Python Developers, 1.3 JavaScript in the Web Context
 
