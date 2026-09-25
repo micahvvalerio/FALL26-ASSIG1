@@ -31,7 +31,7 @@ The Operations Manager who owns the portal is not a developer. Write a brief of 
 3. The single most important change the backend team must make, stated concretely.
 4. One honest limit of your engagement: what you did **not** test.
 
-> your brief
+We conducted testing that demonstrated what would happen if someone ran code through the operator's browser. Specifically, it showed how it could change what the operator sees and how the portal operates. For example, we made services appear as online even during an outage and we made a button stop functioning. As a result, operators may not be able to identify these real problems in time, which affects campus services. Data validation and HTTPS did not stop the attacker because it occured after the page has loaded so inside the browser and the portal trusted the information that the browser showed. The most important change is rather than trusting the browser, the backend must check all important actions and service information. A honest limit to our testing would be that we only tested the provided local portal and not any real campus systems or networks. 
 
 ## Reflection
 
