@@ -14,7 +14,7 @@ d890ff1 (origin/main, origin/HEAD, main) first push with the assignment files
 
 Pick your **best** commit message and your **worst** one. Which of the 7 rules does the worst one break?
 
-> your answer
+My best commit message was answers to mission 2. My worst is answers since it is too vague and does not explain what changed. It breaks the rule that a commit message should clearly describe the change.
 
 ## Pull Request
 
