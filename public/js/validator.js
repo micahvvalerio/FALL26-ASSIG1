@@ -32,8 +32,11 @@ const MAX_NAME_LENGTH = 64;
  */
 function normalizeService(raw) {
   // TODO Mission 1
-}
 
+if (raw === null || typeof raw !== "object" || Array.isArray(raw)) {
+    return null;
+}
+}
 /**
  * Parses the full JSON text returned by the server.
  *
