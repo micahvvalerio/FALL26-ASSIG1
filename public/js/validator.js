@@ -32,8 +32,39 @@ const MAX_NAME_LENGTH = 64;
  */
 function normalizeService(raw) {
   // TODO Mission 1
+if (raw === null || typeof raw !== "object" || Array.isArray(raw)) {
+    return null;
 }
 
+ if (typeof raw.name !== "string") {
+    return null;
+  }
+
+const trimmedName = raw.name.trim();
+if (trimmedName.length === 0 || trimmedName.length > MAX_NAME_LENGTH) {
+  return null;
+}
+
+if (typeof raw.status !== "string" || !ALLOWED_STATUS.includes(raw.status)) {
+  return null;
+}
+
+  if (typeof raw.online !== "boolean") {
+    return null;
+  }
+
+  if (typeof raw.latencyMs !== "number" || !Number.isFinite(raw.latencyMs) || raw.latencyMs < 0) {
+    return null;
+  }
+
+  return{
+    name: trimmedName,
+    status: raw.status,
+    online: raw.online,
+    latencyMs: raw.latencyMs
+  };
+
+}
 /**
  * Parses the full JSON text returned by the server.
  *
@@ -44,7 +75,37 @@ function normalizeService(raw) {
  *   { services: [], rejected: 0, error: "invalid report" }
  */
 function parseStatusReport(jsonText) {
-  // TODO Mission 1
+  // TODO Mission 1\
+  let parsed;
+
+  try {
+    parsed = JSON.parse(jsonText);
+  } catch (error) {
+    return { services: [], rejected: 0, error: "invalid report"};
+  }
+  if (parsed === null || typeof parsed !== "object" || !Array.isArray(parsed.services)) {
+    return { services: [], rejected: 0, error: "invalid report"};
+  }
+
+  const validServices = []
+  let rejectedCount = 0;
+
+  for(const item of parsed.services) {
+    const normalized = normalizeService(item);
+    if (normalized !== null) {
+      validServices.push(normalized);
+    } else {
+      rejectedCount++
+    }
+  }
+
+  return{
+    services: validServices,
+    rejected: rejectedCount,
+    error: null
+  };
+
+
 }
 
 // Lets Node's require() see these functions. The browser simply ignores this block.
